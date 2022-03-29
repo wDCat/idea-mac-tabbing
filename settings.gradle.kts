@@ -1,1 +1,1 @@
-rootProject.name = "idea-mac-merge-all-windows"
+rootProject.name = "IDEA Mac Tabbing"

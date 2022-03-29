@@ -1,18 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.wdcat.ideamacmergeallwindows</id>
-    <name>idea-mac-merge-all-windows</name>
+    <id>cat.dcat.jbplug.mactabbing</id>
+    <name>IDEA Mac Tabbing</name>
     <vendor>wdcat</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.wdcat.ideamacmergeallwindows.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.wdcat.ideamacmergeallwindows.services.MyProjectService"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.wdcat.ideamacmergeallwindows.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <group id="DCat.TabbingHelper" text="Tabbing"
+               class="cat.dcat.jbplug.mactabbing.actions.TabbingActionGroup"
+                popup="true">
+            <add-to-group group-id="WindowMenu" anchor="before" relative-to-action="ActiveToolwindowGroup"/>
+        </group>
+    </actions>
 </idea-plugin>
