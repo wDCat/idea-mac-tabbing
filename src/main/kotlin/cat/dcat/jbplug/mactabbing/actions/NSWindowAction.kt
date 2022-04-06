@@ -7,7 +7,7 @@ import com.intellij.ui.mac.foundation.Foundation
 /**
  * Created by DCat on 2022/3/22.
  */
-class NSWindowAction(title: String, val selector: String, val args: Any? = null) : AnAction(title, title, null) {
+abstract class NSWindowAction(val selector: String, val args: Any? = null) : AnAction() {
     override fun actionPerformed(event: AnActionEvent) {
         val app = Foundation.invoke("NSApplication", "sharedApplication")
         val mainWindow = Foundation.invoke(app, Foundation.createSelector("mainWindow"))
@@ -19,5 +19,7 @@ class NSWindowAction(title: String, val selector: String, val args: Any? = null)
             false
         )
     }
-
+    override fun isDumbAware(): Boolean {
+        return true
+    }
 }
